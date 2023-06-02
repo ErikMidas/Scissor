@@ -1,1 +1,3 @@
 # Scissor
+
+This project is under development...
