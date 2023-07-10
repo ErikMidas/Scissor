@@ -14,8 +14,10 @@ app = Flask(__name__)
 
 load_dotenv()
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///scissor.db"
-# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
+# uncomment line 18 to load the database on your local machine
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///scissor.db"
+# comment line 20 below to load database on local machine
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
