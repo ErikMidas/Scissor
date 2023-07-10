@@ -1,0 +1,26 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<section class="container">
+  {% if current_user.is_authenticated %}
+  <h2>Welcome to Scissor, {{ current_user.username }}!</h2>
+  {% else %}
+  <h2>Welcome to Scissor!</h2>
+  {% endif %}
+  <br>
+  <h3>"Cut through the Clutter, Share with Scissor!"</h3>
+  <br>
+  <p>At Scissor, we believe in the power of simplicity.</p>
+  
+  <p>As the brainchild of Ayodeji O., we set out to revolutionize the way people share links.</p>
+  
+  <p>With Scissor, you can transform long, complicated URLs into concise and memorable short links or custom links, and also share via QR codes.</p>
+  
+  <p>Our user-friendly interface and robust analytics empower individuals, businesses, and influencers to optimize their online presence.</p>
+  
+  <p>Join the Scissor community today and experience the power of effortless link sharing.</p>
+  
+</section>
+
+{% endblock %}

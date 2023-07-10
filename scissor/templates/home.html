@@ -1,0 +1,40 @@
+{% extends "_base.html" %} 
+{% block title %}URL Shortener{% endblock title %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<h2>Welcome, {{ current_user.username }}!</h2>
+<br>
+<form action="{{url_for('home')}}" method="POST" class="form-container">
+  <div class="form-group">
+    <label for="long_link">Paste Long link or URL</label>
+    <input type="url" name="long_link" class="form-control" placeholder="https://forms.google.com/ljjgyoineu675kgu" required>
+  </div>
+  <div class="form-group">
+    <label for="custom_link">Custom URL (Optional)</label>
+    <input type="text" name="custom_link" class="form-control" placeholder="Example: https://ayodejiokulaja.me/custom-url">
+  </div>
+  <div class="form-group" id="submit">
+    <input type="submit" value="Shorten with Scissor" class="w-10 btn btn-lg btn-primary"/>
+  </div>
+</form>
+{% else %}
+<div class="logo-container">
+  <img src="{{url_for('static', filename='images/default-monochrome-black.svg')}}" alt="big-logo" width="70%">
+</div>
+<h3>Welcome to Scissor - The Ultimate URL Shortener</h3>
+<br>
+<h4>Shorten, Share, and Simplify Your Links with Scissor.</h4> 
+<h4>Create custom, memorable short links in seconds.</h4>
+<br>
+<!-- <h4>Join thousands of users who trust Scissor to streamline their online presence.</h4> 
+<h4>Our powerful platform offers advanced features and analytics to optimize your link sharing strategies.</h4> 
+<h4>Get started now and experience the convenience of Scissor!</h4> -->
+  
+<!-- <h5>Unlock the potential of your links with Scissor, the ultimate URL shortener.</h5>
+<h5>Simplify your online sharing and make a lasting impression with every link you share.</h5> -->
+<h5>Get ready to cut through the clutter and share more effectively with Scissor!</h5>
+<h5>
+  <a href="{{url_for('register')}}">Sign up</a> or <a href="{{url_for('login')}}">log in</a> to shorten links for free!
+</h5>
+{% endif %}
+{% endblock %}
